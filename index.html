@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ckb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Center</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg:#000;
+      --muted:#aeb7c4;
+      --accent:#007bff;
+      --light:#fff;
+      font-family:'Noto Sans Arabic',sans-serif;
+    }
+
+    * { box-sizing:border-box; direction:rtl; }
+
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--light);
+    }
+
+    .wrap {
+      max-width:900px;
+      margin:28px auto;
+      padding:20px;
+    }
+
+    /* ===== Floating Share + QR ===== */
+    .floating-qr {
+      position:fixed;
+      top:20px;
+      left:20px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:rgba(0,0,0,.8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index:999;
+      border:1px solid rgba(0,123,255,.4);
+    }
+
+    .floating-qr i {
+      font-size:20px;
+      color:#fff;
+    }
+
+    .qr-box {
+      position:absolute;
+      top:65px;
+      left:0;
+      background:#000;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(0,123,255,.4);
+      display:none;
+    }
+
+    .qr-box canvas {
+      width:140px;
+      height:140px;
+      border-radius:12px;
+    }
+
+    header {
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .logo {
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      margin:auto;
+      background:linear-gradient(145deg,#001122,#002244);
+      border:2px solid var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:48px;
+      font-weight:700;
+    }
+
+    h1 { margin:0; }
+    p.lead { color:var(--muted); font-size:15px; }
+
+    .card {
+      margin-top:30px;
+      padding:20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .services {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0;
+    }
+
+    .chip {
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(0,123,255,.3);
+      background:rgba(0,123,255,.1);
+      font-size:13px;
+    }
+
+    .contact-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .contact-item {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.07);
+    }
+
+    .contact-item i {
+      width:36px;
+      height:36px;
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      color:var(--accent);
+    }
+
+    .contact-item a {
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    footer {
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Floating Share -->
+<div class="floating-qr" id="qrToggle">
+  <i class="fa-solid fa-share-nodes"></i>
+  <div class="qr-box" id="qrBox">
+    <canvas id="floatingQR"></canvas>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header>
+  <div class="logo">MC</div>
+  <h1>My Center</h1>
+  <p class="lang"><b>ناونیشان</b>👈 ناو بازاڕی هەریر بەرمبەر نوسینگەی زانا نزیک گەراجی باتاس</b></p>
+</header>
+
+<div class="card">
+  <h3>خزمەتگوزاری👇</h3>
+  <div class="services">
+    <span class="chip">چاککردنەوەی مۆبایل</span>
+    <span class="chip">کەلوپەلی مۆبایل</span>
+    <span class="chip">هاردوێر</span>
+    <span class="chip">سۆفتوێر</span>
+  </div>
+
+  <div class="contact-list">
+    <div class="contact-item">
+      <i class="fa-solid fa-phone"></i>
+      <div>
+        <a href="tel:07813956321">07813956321</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <i class="fa-solid fa-phone"></i>
+      <div>
+        <a href="tel:07515421042">07515421042</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <i class="fa-brands fa-whatsapp"></i>
+      <a href="https://wa.me/9647515421042" target="_blank">WhatsApp</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-brands fa-viber"></i>
+      <a href="viber://chat?number=%2B9647515421042">Viber</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-brands fa-facebook"></i>
+      <a href="https://www.facebook.com/share/177XtNcrSs" target="_blank">Facebook</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-brands fa-snapchat"></i>
+      <a href="https://www.snapchat.com/add/m4hdi2025" target="_blank">Snapchat</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-brands fa-tiktok"></i>
+      <a href="https://www.tiktok.com/@mycenter3" target="_blank">TikTok</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>© 2025 My Center | هەموو مافەکان پارێزراون</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+<script>
+  const qr = new QRious({
+    element: document.getElementById('floatingQR'),
+    size: 140,
+    value: window.location.href,
+    background: '#000',
+    foreground: '#007bff'
+  });
+
+  const toggle = document.getElementById('qrToggle');
+  const box = document.getElementById('qrBox');
+
+  toggle.addEventListener('click', () => {
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  });
+
+  /* Logo inside QR */
+  const canvas = document.getElementById('floatingQR');
+  const ctx = canvas.getContext('2d');
+  const logo = new Image();
+  logo.src = 'logo.png'; /* لۆگۆی My Center */
+  logo.onload = () => {
+    const s = 36;
+    ctx.drawImage(logo, (canvas.width-s)/2, (canvas.height-s)/2, s, s);
+  };
+</script>
+
+</body>
+</html>
